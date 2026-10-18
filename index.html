@@ -299,7 +299,7 @@
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       padding: 12px;
-      height: 300px; /* सभी कार्ड्स की ऊंचाई एकदम फिक्स कर दी */
+      height: 300px; 
       
       animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
@@ -310,8 +310,6 @@
     .card:nth-child(4) { animation-delay: 0.4s; }
     .card:nth-child(5) { animation-delay: 0.5s; }
     .card:nth-child(6) { animation-delay: 0.6s; }
-    .card:nth-child(7) { animation-delay: 0.7s; }
-    .card:nth-child(8) { animation-delay: 0.8s; }
 
     @keyframes slideUp {
       0% { opacity: 0; transform: translateY(40px); }
@@ -355,7 +353,7 @@
     .image-container {
       position: relative;
       width: 100%;
-      height: 160px; /* इमेज कंटेनर की फिक्स ऊंचाई */
+      height: 160px; 
       overflow: hidden;
       border-radius: 16px;
       background-color: #000;
@@ -394,7 +392,7 @@
       text-align: left;
       display: flex;
       align-items: center;
-      height: 50px; /* ग्लास ओवरले की फिक्स ऊंचाई */
+      height: 50px; 
     }
 
     .glass-overlay .card-title {
@@ -515,18 +513,17 @@
       .about h2, .skills h2, .projects h2, .contact h2 { font-size: 30px; }
       .about p, .skills .sub-heading, .projects .sub-heading, .contact .sub-heading { font-size: 16px; padding: 0 10px; }
       
-      /* मोबाइल के लिए ग्रिड और कार्ड की फिक्स सेटिंग */
       .card-container {
         grid-template-columns: 1fr;
       }
       
       .card {
-        height: 320px; /* मोबाइल पर कार्ड की फिक्स ऊंचाई */
+        height: 320px; 
         max-width: 100%;
       }
 
       .image-container {
-        height: 170px; /* मोबाइल पर इमेज की फिक्स ऊंचाई */
+        height: 170px; 
       }
 
       .contact-form { padding: 20px 16px; }
@@ -597,14 +594,6 @@
         <div class="skill-text">🗣️ Advising</div>
         <div class="card-description" style="display: none;">Providing expert consultation and guidance to help individuals and businesses make better decisions.</div>
       </div>
-      <div class="card skill-card" onclick="toggleSkillDesc(this)">
-        <div class="skill-text">💰 Affiliate Marketing</div>
-        <div class="card-description" style="display: none;">Promoting products and services to earn commissions through strategic affiliate marketing campaigns.</div>
-      </div>
-      <div class="card skill-card" onclick="toggleSkillDesc(this)">
-        <div class="skill-text">📈 Social Media Growth</div>
-        <div class="card-description" style="display: none;">Understanding social media algorithms and creating strategies to grow accounts organically.</div>
-      </div>
     </div>
   </section>
 
@@ -669,18 +658,63 @@
         <div class="card-description" style="display: none;">Personal profile and portfolio websites designed for professionals.</div>
       </div>
 
-      <div class="card">
-        <div class="image-container">
-          <div class="image-placeholder">💰</div>
-          <div class="glass-overlay"><div class="card-title">💰 Affiliate Marketing</div></div>
-        </div>
-        <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
-        <div class="card-description" style="display: none;">Strategic affiliate campaigns with high conversion rates.</div>
-      </div>
+    </div>
+  </section>
 
-      <div class="card">
-        <div class="image-container">
-          <div class="image-placeholder">📈</div>
-          <div class="glass-overlay"><div class="card-title">📈 Social Media Growth</div></div>
-        </div>
-        <button class="btn-learn" onclick="toggle
+  <!-- ===== CONTACT ===== -->
+  <section class="contact">
+    <h2>Contact <span>Us</span></h2>
+    <p class="sub-heading">📬 Have a question or want to work together? Send us a message!</p>
+    <form action="https://formspree.io/f/mgawgqbw" method="POST" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn-send">📤 Send Message</button>
+    </form>
+  </section>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="top-bar">
+    <h2>🌐 PS Portfolio</h2>
+  </div>
+
+  <!-- ===== SOCIAL FOOTER ===== -->
+  <footer class="social-footer">
+    <p>📱 Follow Me on Social Media</p>
+    <div class="social-links">
+      <a href="https://instagram.com/callmepatru" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Instagram
+      </a>
+      <a href="https://facebook.com/pscrazy.in" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDescription(button) {
+      var card = button.closest('.card');
+      var desc = card.querySelector('.card-description');
+      if (desc.style.display === 'none' || desc.style.display === '') {
+        desc.style.display = 'block';
+      } else {
+        desc.style.display = 'none';
+      }
+    }
+
+    function toggleSkillDesc(card) {
+      var desc = card.querySelector('.card-description');
+      if (desc.style.display === 'none' || desc.style.display === '') {
+        desc.style.display = 'block';
+        card.classList.add('active');
+      } else {
+        desc.style.display = 'none';
+        card.classList.remove('active');
+      }
+    }
+  </script>
+
+</body>
+</html>
