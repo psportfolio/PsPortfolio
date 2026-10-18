@@ -299,7 +299,7 @@
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       padding: 12px;
-      min-height: 280px;
+      height: 300px; /* सभी कार्ड्स की ऊंचाई एकदम फिक्स कर दी */
       
       animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
@@ -314,14 +314,8 @@
     .card:nth-child(8) { animation-delay: 0.8s; }
 
     @keyframes slideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .card:hover {
@@ -361,11 +355,10 @@
     .image-container {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      height: 160px; /* इमेज कंटेनर की फिक्स ऊंचाई */
       overflow: hidden;
       border-radius: 16px;
       background-color: #000;
-      flex-grow: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -394,23 +387,23 @@
       left: 0;
       width: 100%;
       padding: 12px 14px;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border-top: 1px solid rgba(255, 255, 255, 0.2);
       text-align: left;
       display: flex;
       align-items: center;
-      min-height: 50px; /* यहाँ फिक्स किया गया है */
+      height: 50px; /* ग्लास ओवरले की फिक्स ऊंचाई */
     }
 
     .glass-overlay .card-title {
       color: white;
-      font-size: 15px; /* फॉन्ट साइज छोटा किया गया है */
+      font-size: 15px;
       font-weight: 700;
       text-shadow: 0 2px 8px rgba(0,0,0,0.4);
       line-height: 1.3;
-      word-break: break-word; /* टेक्स्ट को बाहर निकलने से रोकने के लिए */
+      word-break: break-word;
     }
 
     /* ===== CARD BUTTON (For Projects) ===== */
@@ -516,63 +509,31 @@
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-      .hero p {
-        font-size: 17px;
-        padding: 0 10px;
-      }
-      .btn-primary,
-      .btn-secondary {
-        width: 80%;
-        padding: 14px;
-        font-size: 17px;
-      }
-      .about h2,
-      .skills h2,
-      .projects h2,
-      .contact h2 {
-        font-size: 30px;
-      }
-      .about p,
-      .skills .sub-heading,
-      .projects .sub-heading,
-      .contact .sub-heading {
-        font-size: 16px;
-        padding: 0 10px;
-      }
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 17px; padding: 0 10px; }
+      .btn-primary, .btn-secondary { width: 80%; padding: 14px; font-size: 17px; }
+      .about h2, .skills h2, .projects h2, .contact h2 { font-size: 30px; }
+      .about p, .skills .sub-heading, .projects .sub-heading, .contact .sub-heading { font-size: 16px; padding: 0 10px; }
+      
+      /* मोबाइल के लिए ग्रिड और कार्ड की फिक्स सेटिंग */
       .card-container {
         grid-template-columns: 1fr;
       }
       
       .card {
-        min-height: 320px; 
-        max-height: 380px;
+        height: 320px; /* मोबाइल पर कार्ड की फिक्स ऊंचाई */
+        max-width: 100%;
       }
 
-      .projects .image-container {
-        min-height: 160px; 
-        max-height: 180px;
+      .image-container {
+        height: 170px; /* मोबाइल पर इमेज की फिक्स ऊंचाई */
       }
 
-      .contact-form {
-        padding: 20px 16px;
-      }
-      .social-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-      }
-      .glass-overlay {
-        padding: 10px 12px;
-      }
-      .glass-overlay .card-title {
-        font-size: 14px; /* मोबाइल पर और छोटा */
-      }
-      .skill-text {
-        font-size: 20px;
-      }
+      .contact-form { padding: 20px 16px; }
+      .social-links { flex-direction: column; align-items: center; gap: 12px; }
+      .glass-overlay { padding: 10px 12px; height: 45px;}
+      .glass-overlay .card-title { font-size: 14px; }
+      .skill-text { font-size: 20px; }
     }
   </style>
 </head>
@@ -612,70 +573,38 @@
     <p class="sub-heading">💡 Here are some of the technologies and tools I work with.</p>
 
     <div class="card-container">
-      <!-- Skill 1 -->
       <div class="card skill-card" onclick="toggleSkillDesc(this)">
         <div class="skill-text">🎬 Video Editing</div>
-        <div class="card-description" style="display: none;">
-          Professional video editing for YouTube, Reels, and short films with smooth transitions and sound design.
-        </div>
+        <div class="card-description" style="display: none;">Professional video editing for YouTube, Reels, and short films with smooth transitions and sound design.</div>
       </div>
-
-      <!-- Skill 2 -->
       <div class="card skill-card" onclick="toggleSkillDesc(this)">
         <div class="skill-text">🎞️ Motion Graphics</div>
-        <div class="card-description" style="display: none;">
-          Creating dynamic animated intros, text animations, and visual effects to make videos stand out.
-        </div>
+        <div class="card-description" style="display: none;">Creating dynamic animated intros, text animations, and visual effects to make videos stand out.</div>
       </div>
-
-      <!-- Skill 3 -->
       <div class="card skill-card" onclick="toggleSkillDesc(this)">
         <div class="skill-text">💻 Frontend Dev</div>
-        <div class="card-description" style="display: none;">
-          Building responsive, modern, and user-friendly websites using HTML, CSS, and JavaScript.
-        </div>
+        <div class="card-description" style="display: none;">Building responsive, modern, and user-friendly websites using HTML, CSS, and JavaScript.</div>
       </div>
-
-      <!-- Skill 4 -->
       <div class="card skill-card" onclick="toggleSkillDesc(this)">
         <div class="skill-text">🌐 Portfolio Website</div>
-        <div class="card-description" style="display: none;">
-          Designing and developing personal portfolio websites to showcase skills, projects, and experience.
-        </div>
+        <div class="card-description" style="display: none;">Designing and developing personal portfolio websites to showcase skills, projects, and experience.</div>
       </div>
-
-      <!-- Skill 5 -->
       <div class="card skill-card" onclick="toggleSkillDesc(this)">
         <div class="skill-text">🤖 AI Tools</div>
-        <div class="card-description" style="display: none;">
-          Using advanced AI tools for content generation, image creation, and boosting productivity.
-        </div>
+        <div class="card-description" style="display: none;">Using advanced AI tools for content generation, image creation, and boosting productivity.</div>
       </div>
-
-      <!-- Skill 6 -->
       <div class="card skill-card" onclick="toggleSkillDesc(this)">
         <div class="skill-text">🗣️ Advising</div>
-        <div class="card-description" style="display: none;">
-          Providing expert consultation and guidance to help individuals and businesses make better decisions.
-        </div>
+        <div class="card-description" style="display: none;">Providing expert consultation and guidance to help individuals and businesses make better decisions.</div>
       </div>
-
-      <!-- Skill 7 -->
       <div class="card skill-card" onclick="toggleSkillDesc(this)">
         <div class="skill-text">💰 Affiliate Marketing</div>
-        <div class="card-description" style="display: none;">
-          Promoting products and services to earn commissions through strategic affiliate marketing campaigns.
-        </div>
+        <div class="card-description" style="display: none;">Promoting products and services to earn commissions through strategic affiliate marketing campaigns.</div>
       </div>
-
-      <!-- Skill 8 -->
       <div class="card skill-card" onclick="toggleSkillDesc(this)">
         <div class="skill-text">📈 Social Media Growth</div>
-        <div class="card-description" style="display: none;">
-          Understanding social media algorithms and creating strategies to grow accounts organically.
-        </div>
+        <div class="card-description" style="display: none;">Understanding social media algorithms and creating strategies to grow accounts organically.</div>
       </div>
-
     </div>
   </section>
 
@@ -686,78 +615,72 @@
 
     <div class="card-container">
       
-      <!-- Project 1: Graphic Design -->
       <div class="card">
         <div class="image-container">
           <div class="image-placeholder">🎨</div>
-          <div class="glass-overlay">
-            <div class="card-title">🎨 Graphic Design</div>
-          </div>
+          <div class="glass-overlay"><div class="card-title">🎨 Graphic Design</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
-        <div class="card-description" style="display: none;">
-          Creative product mockups and visual design concepts.
-        </div>
+        <div class="card-description" style="display: none;">Creative product mockups and visual design concepts.</div>
       </div>
 
-      <!-- Project 2: AI Tools -->
       <div class="card">
         <div class="image-container">
           <div class="image-placeholder">🤖</div>
-          <div class="glass-overlay">
-            <div class="card-title">🤖 AI Tools</div>
-          </div>
+          <div class="glass-overlay"><div class="card-title">🤖 AI Tools</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
-        <div class="card-description" style="display: none;">
-          Generating high-quality visual assets using advanced AI tools.
-        </div>
+        <div class="card-description" style="display: none;">Generating high-quality visual assets using advanced AI tools.</div>
       </div>
 
-      <!-- Project 3: Video Editing -->
       <div class="card">
         <div class="image-container">
           <div class="image-placeholder">🎬</div>
-          <div class="glass-overlay">
-            <div class="card-title">🎬 Video Editing</div>
-          </div>
+          <div class="glass-overlay"><div class="card-title">🎬 Video Editing</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
-        <div class="card-description" style="display: none;">
-          High-retention video editing with smooth transitions and sound design.
-        </div>
+        <div class="card-description" style="display: none;">High-retention video editing with smooth transitions and sound design.</div>
       </div>
 
-      <!-- Project 4: Motion Graphics -->
       <div class="card">
         <div class="image-container">
           <div class="image-placeholder">🎞️</div>
-          <div class="glass-overlay">
-            <div class="card-title">🎞️ Motion Graphics</div>
-          </div>
+          <div class="glass-overlay"><div class="card-title">🎞️ Motion Graphics</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
-        <div class="card-description" style="display: none;">
-          Dynamic motion graphics and animated intros.
-        </div>
+        <div class="card-description" style="display: none;">Dynamic motion graphics and animated intros.</div>
       </div>
 
-      <!-- Project 5: Frontend Dev -->
       <div class="card">
         <div class="image-container">
           <div class="image-placeholder">💻</div>
-          <div class="glass-overlay">
-            <div class="card-title">💻 Frontend Dev</div>
-          </div>
+          <div class="glass-overlay"><div class="card-title">💻 Frontend Dev</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
-        <div class="card-description" style="display: none;">
-          Responsive and modern web interfaces built with HTML/CSS/JS.
-        </div>
+        <div class="card-description" style="display: none;">Responsive and modern web interfaces built with HTML/CSS/JS.</div>
       </div>
 
-      <!-- Project 6: Portfolio Website -->
       <div class="card">
         <div class="image-container">
           <div class="image-placeholder">🌐</div>
-          <div class="glass-ove
+          <div class="glass-overlay"><div class="card-title">🌐 Portfolio Website</div></div>
+        </div>
+        <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
+        <div class="card-description" style="display: none;">Personal profile and portfolio websites designed for professionals.</div>
+      </div>
+
+      <div class="card">
+        <div class="image-container">
+          <div class="image-placeholder">💰</div>
+          <div class="glass-overlay"><div class="card-title">💰 Affiliate Marketing</div></div>
+        </div>
+        <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
+        <div class="card-description" style="display: none;">Strategic affiliate campaigns with high conversion rates.</div>
+      </div>
+
+      <div class="card">
+        <div class="image-container">
+          <div class="image-placeholder">📈</div>
+          <div class="glass-overlay"><div class="card-title">📈 Social Media Growth</div></div>
+        </div>
+        <button class="btn-learn" onclick="toggle
