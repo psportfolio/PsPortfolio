@@ -21,7 +21,7 @@
       overflow-x: hidden;
     }
 
-    /* ===== TOP BAR (ऊपर की नीली पट्टी) ===== */
+    /* ===== TOP BAR ===== */
     .top-bar {
       background-color: #3b82f6;
       width: 100%;
@@ -59,9 +59,7 @@
       text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
-    .hero h1 span {
-      color: #ffcc00;
-    }
+    .hero h1 span { color: #ffcc00; }
 
     .hero p {
       font-size: 22px;
@@ -131,9 +129,7 @@
       letter-spacing: 1px;
     }
 
-    .about h2 span {
-      color: #ffcc00;
-    }
+    .about h2 span { color: #ffcc00; }
 
     .about p {
       font-size: 18px;
@@ -166,9 +162,7 @@
       letter-spacing: 1px;
     }
 
-    .skills h2 span {
-      color: #ffcc00;
-    }
+    .skills h2 span { color: #ffcc00; }
 
     .skills .sub-heading {
       font-size: 18px;
@@ -195,9 +189,7 @@
       letter-spacing: 1px;
     }
 
-    .projects h2 span {
-      color: #ffcc00;
-    }
+    .projects h2 span { color: #ffcc00; }
 
     .projects .sub-heading {
       font-size: 18px;
@@ -223,9 +215,7 @@
       letter-spacing: 1px;
     }
 
-    .contact h2 span {
-      color: #ffcc00;
-    }
+    .contact h2 span { color: #ffcc00; }
 
     .contact .sub-heading {
       font-size: 18px;
@@ -368,7 +358,7 @@
       margin-bottom: 10px;
     }
 
-    /* ===== IMAGE CONTAINER (PLACEHOLDER) ===== */
+    /* ===== IMAGE / VIDEO CONTAINER ===== */
     .image-container {
       position: relative;
       width: 100%;
@@ -381,19 +371,16 @@
       justify-content: center;
     }
 
-    .image-placeholder {
+    /* यहाँ वीडियो के लिए CSS लगाई गई है */
+    .image-container video {
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 50px;
-      background: linear-gradient(135deg, #001f3f, #004080);
-      color: white;
+      object-fit: cover; /* वीडियो को बॉक्स में परफेक्ट फिट करने के लिए */
+      display: block;
       transition: transform 0.4s ease;
     }
 
-    .card:hover .image-placeholder {
+    .card:hover .image-container video {
       transform: scale(1.08);
     }
 
@@ -543,7 +530,7 @@
 </head>
 <body>
 
-  <!-- ===== TOP BAR (ऊपर की नीली पट्टी) ===== -->
+  <!-- ===== TOP BAR ===== -->
   <div class="top-bar">
     <h2>Ps Portfolio</h2>
   </div>
@@ -619,7 +606,8 @@
       <!-- 1. Video Editing -->
       <div class="card">
         <div class="image-container">
-          <div class="image-placeholder">🎬</div>
+          <!-- यहाँ Video Tag जोड़ दिया गया है -->
+          <video src="video-editing.mp4" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&auto=format&fit=crop&q=60"></video>
           <div class="glass-overlay"><div class="card-title">🎬 Video Editing</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
@@ -629,7 +617,7 @@
       <!-- 2. Motion Graphics -->
       <div class="card">
         <div class="image-container">
-          <div class="image-placeholder">🎞️</div>
+          <video src="motion-graphics.mp4" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=60"></video>
           <div class="glass-overlay"><div class="card-title">🎞️ Motion Graphics</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
@@ -639,7 +627,7 @@
       <!-- 3. Frontend Dev -->
       <div class="card">
         <div class="image-container">
-          <div class="image-placeholder">💻</div>
+          <video src="frontend-dev.mp4" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&auto=format&fit=crop&q=60"></video>
           <div class="glass-overlay"><div class="card-title">💻 Frontend Dev</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
@@ -649,7 +637,7 @@
       <!-- 4. Portfolio Website -->
       <div class="card">
         <div class="image-container">
-          <div class="image-placeholder">🌐</div>
+          <video src="portfolio-website.mp4" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=60"></video>
           <div class="glass-overlay"><div class="card-title">🌐 Portfolio Website</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
@@ -659,7 +647,7 @@
       <!-- 5. AI Tools -->
       <div class="card">
         <div class="image-container">
-          <div class="image-placeholder">🤖</div>
+          <video src="ai-tools.mp4" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&auto=format&fit=crop&q=60"></video>
           <div class="glass-overlay"><div class="card-title">🤖 AI Tools</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
@@ -669,7 +657,7 @@
       <!-- 6. Advising -->
       <div class="card">
         <div class="image-container">
-          <div class="image-placeholder">🗣️</div>
+          <video src="advising.mp4" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=60"></video>
           <div class="glass-overlay"><div class="card-title">🗣️ Advising</div></div>
         </div>
         <button class="btn-learn" onclick="toggleDescription(this)">View Project</button>
